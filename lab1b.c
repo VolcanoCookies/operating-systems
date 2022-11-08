@@ -19,6 +19,8 @@ int main(int argc, char const *argv[]) {
   switch (fork()) {
   case 0:
 
+    msg_qe = mq_open(MSG_QUEUE_NAME, O_WRONLY);
+
     FILE *f = fopen(argv[1], "r");
 
     len = fread(buf, 1, MSG_MAX_SIZE, f);
